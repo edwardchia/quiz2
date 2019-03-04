@@ -18,6 +18,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    # @new_comment = Comment.new
+    # @comments = @post.comments.order(created_at: :desc)
   end
 
   def update
@@ -31,6 +33,13 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+
+    redirect_to posts_path
   end
 
   private

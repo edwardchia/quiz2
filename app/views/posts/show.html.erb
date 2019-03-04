@@ -19,7 +19,7 @@ Posted <%= time_ago_in_words(@post.created_at) %> ago
       <%= link_to "Delete", post_path(@post.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-primary" %>
     </small>
   
-
+<% if false %>
   <section>
   <h1>Comments</h1>
 
@@ -28,9 +28,9 @@ Posted <%= time_ago_in_words(@post.created_at) %> ago
       <p class="form-errors">
         <%= @new_comment.errors.full_messages.join(", ") %>
       </p>
-    <% end %>
-
+    <% end %> 
     <div class="form-group">
+
       <%= f.text_area(
         :body,
         cols: 50,
@@ -65,4 +65,5 @@ Posted <%= time_ago_in_words(@post.created_at) %> ago
     <% end %>
   </div>
 </section>
+<% end %>
 </div>
