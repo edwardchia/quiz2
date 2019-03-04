@@ -1,1 +1,68 @@
 <h1>this is the show page</h1>
+
+
+<div class = "container">
+<section class ="section">
+
+<h2 class="title"><%= @post.title %> </h2>
+<div class="content">
+<%= @post.description %>
+
+
+</div>
+Posted <%= time_ago_in_words(@post.created_at) %> ago
+</section>
+<small>
+      <%= link_to "Edit", edit_post_path(@post.id), class: "btn btn-outline-primary" %>
+</small>
+<small>
+      <%= link_to "Delete", post_path(@post.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-primary" %>
+    </small>
+  
+
+  <section>
+  <h1>Comments</h1>
+
+  <%= form_with(model: [@post, @new_comment], local: true) do |f| %>
+    <% if @new_comment.errors.present? %>
+      <p class="form-errors">
+        <%= @new_comment.errors.full_messages.join(", ") %>
+      </p>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.text_area(
+        :body,
+        cols: 50,
+        rows: 5,
+        placeholder: "Whats on your mind?",
+        class: "form-control"
+      ) %>
+    </div>
+    <%= f.submit "Submit", class: "btn btn-outline-primary" %>
+  <% end %>
+
+  <div class="comment-list">
+    <% @comments.each do |comment| %>
+      <div>
+        <p>
+          <%= comment.body %> <br>
+          <li>
+          <small>
+           <%#≈ Answered by <%= comment.user&.name || 'DELETED' %>
+            Commented <%= time_ago_in_words(comment.created_at) %> ago
+          
+          
+          
+            <%# if can?(:destroy, comment) %>
+              <%= link_to("Delete", post_comment_path(@post, comment), method: :delete, data: {confirm: "Are you sure?"})%>
+            <%# end %>
+            
+          </small>
+          </li>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</section>
+</div>
