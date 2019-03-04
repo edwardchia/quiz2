@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>IdeaFactory</title>
+    <title>Idea Factory</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,22 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <nav>
+      <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+      <div class ="navigationtitle">
+      <%= link_to("Idea Factory", root_path) %>
+      </div>
+      <ul class="justify-content-end">
+        <%= link_to("Home", root_path) %>
+        
+        <%= link_to("New Idea", new_post_path) %>
+       
+      </ul>  
+      </nav>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>
