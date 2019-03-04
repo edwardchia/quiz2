@@ -43,15 +43,23 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (9.0.0)
+    better_errors (2.5.1)
+      coderay (>= 1.0.0)
+      erubi (>= 1.0.0)
+      rack (>= 0.9.0)
     bindex (0.5.0)
     bootsnap (1.4.1)
       msgpack (~> 1.0)
     builder (3.2.3)
     byebug (11.0.0)
+    coderay (1.1.2)
     concurrent-ruby (1.1.4)
+    cowsay (0.3.0)
     crass (1.0.4)
     erubi (1.8.0)
     execjs (2.7.0)
+    faker (1.9.3)
+      i18n (>= 0.7)
     ffi (1.10.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -158,8 +166,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  better_errors (~> 2.5, >= 2.5.1)
   bootsnap (>= 1.1.0)
   byebug
+  cowsay
+  faker
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
